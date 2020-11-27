@@ -12,7 +12,6 @@ export const getUsers = async ({ keyword = 'cesar' } = {}) => {
         return { id, login, avatar_url }
       })
     }
-    console.log(items)
   } catch (err) {
     console.error(err.message)
   }

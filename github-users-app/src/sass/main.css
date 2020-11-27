@@ -355,34 +355,15 @@ template {
 }
 
 /*$PAGES*/
-.profile__container {
-  width: 90%;
-  margin: 16px auto 32px auto;
-  max-width: 1240px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
 .image__container {
   width: 50%;
   max-width: 300px;
+  border: 1px solid red;
   margin: 0;
   padding: 0;
 }
 
 .image__container > img {
-  border-radius: 50%;
   width: 100%;
 }
 
@@ -390,39 +371,33 @@ template {
   padding: 16px;
 }
 
-.text__container .location__container {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  margin: 8px auto;
-}
-
 .metrics__container {
-  width: 90%;
-  margin: 45px auto auto auto;
+  width: 100%;
+  border: 1px solid red;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .metrics__item {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
+  -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  flex-direction: column;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -448,7 +423,7 @@ template {
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 }
 
-@media only screen and (min-width: 1024px) {
+@media only screen and (min-width: 992px) {
   .list-of-user {
     -ms-grid-columns: (1fr)[5];
         grid-template-columns: repeat(5, 1fr);
@@ -462,9 +437,5 @@ i {
 .logo {
   cursor: pointer;
   margin-top: 50px;
-}
-
-.button_container {
-  margin-top: 60px;
 }
 /*# sourceMappingURL=main.css.map */

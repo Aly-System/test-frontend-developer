@@ -10,7 +10,8 @@ const useStyles = makeStyles(theme => ({
     padding: '4px 4px',
     display: 'flex',
     alignItems: 'center',
-    width: '50%',
+    width: '100%',
+    maxWidth: '500px',
     margin: '100px auto',
   },
   input: {
@@ -34,10 +35,23 @@ const SearchBar = () => {
   const handleSubmit = e => {
     e.preventDefault()
     //We are going to go another path
-    setPath(`/search/${keyword}`)
+    if (checkInput()) setPath(`/search/${keyword}`)
   }
   const handleChange = e => {
     setKeyword(e.target.value)
+  }
+
+  const checkInput = () => {
+    if (keyword === 'react') {
+      console.info(`${keyword} no es un termino correcto`)
+
+      return false
+    } else if (keyword.length < 4) {
+      console.info(`${keyword} Ingrese un nombre de usuario correcto`)
+      return false
+    }
+
+    return true
   }
 
   return (
