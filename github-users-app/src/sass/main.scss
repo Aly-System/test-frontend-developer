@@ -1,0 +1,17 @@
+@import 'utilities/variables';
+@import 'utilities/functions';
+@import 'utilities/mixins';
+@import 'themes/theme';
+
+@import 'base/reset';
+@import 'base/typo';
+
+@import 'layout/grid';
+
+/*$PAGES*/
+@import 'pages/home';
+
+/*$COMPONENTS*/
+@import 'components/listOfUsers';
+@import 'components/icons';
+@import 'components/logo';
