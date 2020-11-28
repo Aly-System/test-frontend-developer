@@ -481,4 +481,9 @@ i {
       -ms-flex-pack: center;
           justify-content: center;
 }
+
+.chart__container {
+  height: 300px;
+  margin-bottom: 32px;
+}
 /*# sourceMappingURL=main.css.map */

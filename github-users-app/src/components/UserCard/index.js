@@ -13,7 +13,7 @@ const useStyles = makeStyles({
   },
 })
 
-const UserCard = ({ id, login, avatar_url }) => {
+const UserCard = ({ id, login, avatar_url, followers }) => {
   const classes = useStyles()
 
   return (
@@ -33,6 +33,9 @@ const UserCard = ({ id, login, avatar_url }) => {
             <Typography variant="subtitle1" component="h4">
               <i className="fab fa-github"></i>
               {login}
+            </Typography>
+            <Typography variant="subtitle1" component="h4">
+              Followers: {followers}
             </Typography>
           </CardContent>
         </CardActionArea>

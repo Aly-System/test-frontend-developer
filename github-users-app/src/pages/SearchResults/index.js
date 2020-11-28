@@ -5,6 +5,7 @@ import SearchBar from '../../components/SearchBar'
 import Typography from '@material-ui/core/Typography'
 import Logo from '../../components/Logo'
 import PageLoader from '../../components/PageLoader'
+import FollowersChart from '../../components/FollowersChart'
 
 const SearchResults = ({ params: { keyword } }) => {
   const { loading, users } = useUsers({ keyword })
@@ -13,6 +14,7 @@ const SearchResults = ({ params: { keyword } }) => {
     <div className="container">
       <Logo />
       <SearchBar />
+      <FollowersChart users={users} />
 
       <Typography gutterBottom variant="h6" component="h2">
         Lista de usuarios
