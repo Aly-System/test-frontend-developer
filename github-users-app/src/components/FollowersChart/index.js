@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Bar } from 'react-chartjs-2'
+import PropTypes from 'prop-types'
 
 const FollowersChart = ({ users }) => {
   const [chartData, setChartData] = useState({})
@@ -55,8 +56,9 @@ const FollowersChart = ({ users }) => {
   }
 
   useEffect(() => {
+    //Recorremos el array de usuarios para obtener todos sus nombres
     const dimentions = users.map(user => user.login)
-
+    //Recorremos el array de usuarios para obtener todos sus followers
     const metrics = users.map(user => user.followers)
 
     chart(dimentions, metrics)
@@ -67,6 +69,11 @@ const FollowersChart = ({ users }) => {
       <Bar data={chartData} options={options} />
     </section>
   )
+}
+
+FollowersChart.propTypes = {
+  //Recibimos un arrays de objetos con todos los usuarios
+  users: PropTypes.arrayOf(PropTypes.object).isRequired,
 }
 
 export default FollowersChart

@@ -6,6 +6,7 @@ import Divider from '@material-ui/core/Divider'
 import { makeStyles } from '@material-ui/core/styles'
 import CloseButton from '../../components/CloseButton'
 import PageLoader from '../../components/PageLoader'
+import PropTypes from 'prop-types'
 
 const useStyles = makeStyles(theme => ({
   divider: {
@@ -27,6 +28,7 @@ const Detail = ({ params: { login } }) => {
         <figure className="image__container">
           <img src={user.avatar_url} alt={user.login} />
         </figure>
+
         <section className="text__container">
           <Typography
             variant="h5"
@@ -104,6 +106,11 @@ const Detail = ({ params: { login } }) => {
       </div>
     </>
   )
+}
+
+Detail.propTypes = {
+  //Recibimos el username o login del usuario seleeccionado
+  login: PropTypes.string,
 }
 
 export default Detail

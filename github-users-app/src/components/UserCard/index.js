@@ -6,6 +6,7 @@ import CardContent from '@material-ui/core/CardContent'
 import CardMedia from '@material-ui/core/CardMedia'
 import Typography from '@material-ui/core/Typography'
 import { Link } from 'wouter'
+import PropTypes from 'prop-types'
 
 const useStyles = makeStyles({
   media: {
@@ -28,20 +29,30 @@ const UserCard = ({ id, login, avatar_url, followers }) => {
           <CardContent>
             <Typography variant="body1" component="h3">
               <i className="fas fa-id-badge"></i>
-              {id}
+              Id: <strong>{id}</strong>
             </Typography>
             <Typography variant="subtitle1" component="h4">
               <i className="fab fa-github"></i>
-              {login}
+              Username:
+              <strong>{login}</strong>
             </Typography>
             <Typography variant="subtitle1" component="h4">
-              Followers: {followers}
+              <i className="fas fa-user-friends"></i>
+              Followers:
+              <strong> {followers}</strong>
             </Typography>
           </CardContent>
         </CardActionArea>
       </Link>
     </Card>
   )
+}
+
+UserCard.propTypes = {
+  id: PropTypes.number.isRequired,
+  login: PropTypes.string.isRequired,
+  avatar_url: PropTypes.string.isRequired,
+  followers: PropTypes.number.isRequired,
 }
 
 export default UserCard

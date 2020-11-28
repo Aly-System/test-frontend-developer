@@ -9,7 +9,7 @@ const App = () => {
   return (
     <div>
       <section>
-        <Route path="/" component={Home} />
+        <Route path="/" default component={Home} />
         <Route path="/search/:keyword" component={SearchResults} />
         <Route path="/user/:login" component={Detail} />
       </section>

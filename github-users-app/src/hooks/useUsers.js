@@ -7,7 +7,7 @@ export default function useUsers({ keyword } = { keyword: null }) {
 
   useEffect(() => {
     const keywordToUse =
-      keyword || localStorage.getItem('lastKeyword') || 'cesar'
+      keyword || localStorage.getItem('lastKeyword') || 'random'
 
     setLoading(true)
     getUsers({ keyword: keywordToUse }).then(newUsers => {

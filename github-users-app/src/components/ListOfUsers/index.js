@@ -1,5 +1,6 @@
 import React from 'react'
 import UserCard from '../UserCard/index'
+import PropTypes from 'prop-types'
 
 const ListOfUsers = ({ users }) => {
   return (
@@ -9,6 +10,11 @@ const ListOfUsers = ({ users }) => {
       ))}
     </div>
   )
+}
+
+ListOfUsers.propTypes = {
+  //Recibimos un arrays de objetos con todos los usuarios
+  users: PropTypes.arrayOf(PropTypes.object).isRequired,
 }
 
 export default ListOfUsers

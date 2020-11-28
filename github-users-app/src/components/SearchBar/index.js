@@ -37,6 +37,7 @@ const SearchBar = () => {
     e.preventDefault()
     //We are going to go another path
 
+    //Validamos y mostramos mensaje de error en caso que haya ingresado un usuario icorrecto
     if (!userValid())
       return Swal.fire({
         title: 'Ingrese un usuario valido',

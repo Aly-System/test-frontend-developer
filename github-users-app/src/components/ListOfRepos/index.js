@@ -8,6 +8,8 @@ import TableHead from '@material-ui/core/TableHead'
 import TableRow from '@material-ui/core/TableRow'
 import Paper from '@material-ui/core/Paper'
 import Button from '@material-ui/core/Button'
+import PropTypes from 'prop-types'
+
 const useStyles = makeStyles({
   table: {
     width: '100%',
@@ -51,4 +53,9 @@ export default function ListOfRepos({ repos }) {
       </Table>
     </TableContainer>
   )
+}
+
+ListOfRepos.propTypes = {
+  //Recibimos un arrays de objetos con todos los repositorios del usuario seleccionado
+  repos: PropTypes.arrayOf(PropTypes.object),
 }

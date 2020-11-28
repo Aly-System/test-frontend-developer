@@ -1,4 +1,4 @@
-const fetchData = async login => {
+const fetchSingleUser = async login => {
   try {
     const response = await fetch(`https://api.github.com/users/${login}`)
     const user = await response.json()
@@ -9,7 +9,7 @@ const fetchData = async login => {
   }
 }
 
-export const getUsers = async ({ keyword = 'cesar' } = {}) => {
+export const getUsers = async ({ keyword } = {}) => {
   const apiURL = `https://api.github.com/search/users?q=${keyword}&page=1&per_page=10`
 
   try {
@@ -18,7 +18,7 @@ export const getUsers = async ({ keyword = 'cesar' } = {}) => {
 
     if (Array.isArray(items)) {
       const getData = async () => {
-        const userPromises = items.map(user => fetchData(user.login))
+        const userPromises = items.map(user => fetchSingleUser(user.login))
 
         //Obtener los seguidores de  cada usuario
         const users = await Promise.all(userPromises)
@@ -28,13 +28,12 @@ export const getUsers = async ({ keyword = 'cesar' } = {}) => {
 
       const users = await getData()
 
+      //Ordenar lista de usuarios por cantidad de followers
       return users.sort((a, b) => {
-        if (a.followers > b.followers) {
-          return -1
-        }
-        if (a.followers < b.followers) {
-          return 1
-        }
+        if (a.followers > b.followers) return -1
+
+        if (a.followers < b.followers) return 1
+
         // a must be equal to b
         return 0
       })
