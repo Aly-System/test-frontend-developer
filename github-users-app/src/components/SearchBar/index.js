@@ -4,6 +4,7 @@ import Paper from '@material-ui/core/Paper'
 import InputBase from '@material-ui/core/InputBase'
 import IconButton from '@material-ui/core/IconButton'
 import { useLocation } from 'wouter'
+import Swal from 'sweetalert2'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -35,22 +36,24 @@ const SearchBar = () => {
   const handleSubmit = e => {
     e.preventDefault()
     //We are going to go another path
-    if (checkInput()) setPath(`/search/${keyword}`)
+
+    if (!userValid())
+      return Swal.fire({
+        title: 'Ingrese un usuario valido',
+        text: `${keyword}, no es un usuario de github`,
+        icon: 'error',
+        confirmButtonText: 'Ok',
+      })
+
+    setPath(`/search/${keyword}`)
   }
   const handleChange = e => {
     setKeyword(e.target.value)
   }
 
-  const checkInput = () => {
-    if (keyword === 'react') {
-      console.info(`${keyword} no es un termino correcto`)
-
-      return false
-    } else if (keyword.length < 4) {
-      console.info(`${keyword} Ingrese un nombre de usuario correcto`)
-      return false
-    }
-
+  const userValid = () => {
+    if (keyword === 'react') return false
+    if (keyword.length < 4) return false
     return true
   }
 

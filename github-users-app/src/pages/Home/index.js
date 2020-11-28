@@ -4,9 +4,12 @@ import useUsers from '../../hooks/useUsers'
 import Typography from '@material-ui/core/Typography'
 import SearchBar from '../../components/SearchBar'
 import Logo from '../../components/Logo'
+import PageLoader from '../../components/PageLoader'
 
 const Home = () => {
   const { loading, users } = useUsers()
+
+  if (loading) return <PageLoader />
 
   return (
     <div className="container">

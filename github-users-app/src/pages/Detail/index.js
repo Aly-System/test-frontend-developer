@@ -5,6 +5,7 @@ import ListOfRepos from '../../components/ListOfRepos'
 import Divider from '@material-ui/core/Divider'
 import { makeStyles } from '@material-ui/core/styles'
 import CloseButton from '../../components/CloseButton'
+import PageLoader from '../../components/PageLoader'
 
 const useStyles = makeStyles(theme => ({
   divider: {
@@ -16,6 +17,8 @@ const useStyles = makeStyles(theme => ({
 const Detail = ({ params: { login } }) => {
   const { loading, user } = useSingleUser(login)
   const classes = useStyles()
+
+  if (loading) return <PageLoader />
 
   return (
     <>
